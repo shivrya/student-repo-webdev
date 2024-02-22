@@ -22,8 +22,8 @@ const createParaElement = document.createElement("p");
 const firstSentence = document.createElement("span");
 const restSentence = document.createElement("span");
 
-firstSentence.textContent = `Hey 👋, My name is Shivraj, and I `;
-restSentence.textContent = `am currently pursuing my master's in
+firstSentence.textContent = `Hey 👋, My name is Shivraj, and I am`;
+restSentence.textContent = ` currently pursuing my master's in
 computer science. I am more inclined towards web development and would
 like to explore new web development frameworks and libraries.
 Previously, I worked as a software engineer at The Modern Data
