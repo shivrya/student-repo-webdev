@@ -22,14 +22,10 @@ const createParaElement = document.createElement("p");
 const firstSentence = document.createElement("span");
 const restSentence = document.createElement("span");
 
-firstSentence.textContent = `Hey 👋, My name is Shivraj, and I am`;
-restSentence.textContent = ` currently pursuing my master's in
-computer science. I am more inclined towards web development and would
-like to explore new web development frameworks and libraries.
-Previously, I worked as a software engineer at The Modern Data
-Company, where we developed data platforms. I am still learning how to
-craft beer, and my hobbies include going on trails and road trips with
-friends.
+firstSentence.textContent = `My name is Shivraj and I am`;
+restSentence.textContent = ` currently pursuing my Master's in Computer Science
+ starting from Fall 2023. I am really excited to learn web development.
+I am excited about creating responsive web pages. I like to play Chess and Cricket. Thank you!
 `;
 
 createParaElement.className = "bio";
