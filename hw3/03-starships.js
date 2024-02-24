@@ -1,85 +1,88 @@
-// Declare starships object
-let starships;
+const URL = "https://swapi.dev/api/starships/";
 
-// Make an asynchronous call to the API using Fetch
-const fetchData = async () => {
+let starships = [];
+
+const fetchData = async (url) => {
+  // REtrieve the data from the API
+  loading();
   try {
-    const res = await fetch("https://swapi.dev/api/starships/");
-    const starshipsData = await res.json();
-    starships = starshipsData.results;
-  } catch (error) {
-    console.error("Error fetching data:", error);
+    let response = await fetch(url);
+    response = await response.json();
+    starships = await response.results;
+    removeLoading();
+  } catch (e) {
+    removeLoading();
+    console.error(e);
   }
 };
 
-fetchData(); // call fetch
-
 const createSpaceshipComponent = (spaceship) => {
   const container = document.createElement("section"); // do not modify this line
-  container.classList.add("container");
+  container.className = "spaceship";
 
-  const name = document.createElement("p");
-  name.textContent = spaceship["name"];
-  name.classList.add("name");
+  const name = document.createElement("h2");
+  name.innerText = spaceship.name;
+  name.className = "spaceship-med spaceship-margin";
 
-  const cost = document.createElement("p");
-  cost.textContent =
-    Number(spaceship["cost_in_credits"]).toLocaleString() + " credits";
-  cost.classList.add("cost");
+  const costCredits = document.createElement("span");
+  const credits = parseInt(spaceship.cost_in_credits).toLocaleString("en-US");
+  costCredits.innerText = `${credits !== "NaN" ? credits : "n/a"} Credits`;
+  costCredits.className = "spaceship-margin spaceship-bold";
+
+  const modelAndCredits = document.createElement("div");
+  modelAndCredits.className = "ship-name-credits";
+
+  modelAndCredits.appendChild(name);
+  modelAndCredits.appendChild(costCredits);
 
   const manufacturer = document.createElement("p");
-  manufacturer.textContent = "Manufactured by " + spaceship["manufacturer"];
-  manufacturer.classList.add("manufacturer");
+  manufacturer.innerText = `Manufactured by ${spaceship.manufacturer}`;
+  manufacturer.className = "spaceship-margin";
 
-  const speed = document.createElement("p");
-  speed.classList.add("speed");
+  const atmos_and_cargo = document.createElement("div");
+  atmos_and_cargo.className = "spaceship-atmos-credits";
 
-  const speedValue = document.createElement("span");
-  speedValue.textContent = spaceship["max_atmosphering_speed"];
-  speedValue.classList.add("speed-value");
-  speed.appendChild(speedValue);
+  const max_atm_speed = document.createElement("span");
+  max_atm_speed.innerText = `${spaceship.max_atmosphering_speed}`;
+  max_atm_speed.className = "spaceship-grid-ctr spaceship-bold";
 
-  const newLine = document.createElement("br");
-  speed.appendChild(newLine);
+  const max_atm_speed_text = document.createElement("span");
+  max_atm_speed_text.innerText = `Max atmosphering speed`;
+  max_atm_speed_text.className = "spaceship-grid-ctr";
 
-  const speedText = document.createElement("span");
-  speedText.textContent = " Max atmosphering speed";
-  speed.appendChild(speedText);
+  const divider = document.createElement("div");
+  const hrDivElem = document.createElement("hr");
+  hrDivElem.className = "spaceship-divider";
+  divider.appendChild(hrDivElem);
 
-  const speedContainer = document.createElement("div");
-  speedContainer.appendChild(speed);
-  speedContainer.classList.add("speed-container");
+  const cargo_capacity = document.createElement("span");
+  cargo_capacity.innerText = `${parseInt(
+    spaceship.cargo_capacity
+  ).toLocaleString("en-US")}`;
+  cargo_capacity.className = "spaceship-grid-ctr spaceship-bold";
 
-  const line = document.createElement("div");
-  line.classList.add("line");
+  const cargo_capacity_text = document.createElement("span");
+  cargo_capacity_text.innerText = `Cargo Capacity`;
+  cargo_capacity_text.className = "spaceship-grid-ctr";
 
-  const cargo = document.createElement("p");
-  cargo.classList.add("cargo");
+  const atmos_speed = document.createElement("div");
+  atmos_speed.className = "atmos-cargo";
+  atmos_speed.className = "atmos-speed-pl";
+  const cargo_credits = document.createElement("div");
+  cargo_credits.className = "atmos-cargo";
 
-  const cargoValue = document.createElement("span");
-  cargoValue.textContent = Number(spaceship["cargo_capacity"]).toLocaleString();
-  cargoValue.classList.add("cargo-value");
-  cargo.appendChild(cargoValue);
+  atmos_speed.appendChild(max_atm_speed);
+  atmos_speed.appendChild(max_atm_speed_text);
+  cargo_credits.appendChild(cargo_capacity);
+  cargo_credits.appendChild(cargo_capacity_text);
 
-  const cargoText = document.createElement("span");
-  cargoText.textContent = " Cargo capacity";
-  cargoText.classList.add("cargo-text");
-  cargo.appendChild(cargoText);
+  atmos_and_cargo.appendChild(atmos_speed);
+  atmos_and_cargo.appendChild(divider);
+  atmos_and_cargo.appendChild(cargo_credits);
 
-  const cargoContainer = document.createElement("div");
-  cargoContainer.appendChild(cargo);
-  cargoContainer.classList.add("cargo-container");
-
-  const dataDiv = document.createElement("div");
-  dataDiv.classList.add("data-div");
-  dataDiv.appendChild(speedContainer);
-  dataDiv.appendChild(line);
-  dataDiv.appendChild(cargoContainer);
-
-  container.appendChild(name);
-  container.appendChild(cost);
+  container.appendChild(modelAndCredits);
   container.appendChild(manufacturer);
-  container.appendChild(dataDiv);
+  container.appendChild(atmos_and_cargo);
 
   return container; // do not modify this line
 };
@@ -87,24 +90,43 @@ const createSpaceshipComponent = (spaceship) => {
 const main = document.getElementsByTagName("main")[0];
 
 const filterStarships = (input) => {
-  let res = input.filter((spaceship) => {
-    return spaceship.passengers < 10 && spaceship.crew > 1;
-  });
-  return res;
+  // Return an array with all ships that have less than 10 passengers with more than one crew member
+  return input.filter(
+    (ship) => parseInt(ship.passengers) < 10 && parseInt(ship.crew) > 1
+  );
 };
 
 const reduceStarships = (input) => {
   // Return a String of the cost to purchase all ships in the input array
-  let totalCost = 0;
+  const totalCost = input
+    .map((starship) => parseInt(starship.cost_in_credits))
+    .filter((credits) => !isNaN(credits))
+    .reduce((acc, curr) => acc + curr);
 
-  for (const i in input) {
-    if (input[i]["cost_in_credits"] >= 0) {
-      totalCost += Number(input[i]["cost_in_credits"]);
-    }
-  }
-
-  return `The cost of all starships is ${totalCost.toLocaleString()} credits`;
+  return `The cost of all starships is ${totalCost.toLocaleString(
+    "en-US"
+  )} credits`;
 };
+
+//Loading function during the mount phase of page while the page is fetching results for API
+const loading = () => {
+  let app = document.getElementById("results");
+  const loading = document.createElement("p");
+  loading.id = "loading-cls";
+  loading.textContent = "Fetching API...";
+  loading.style.display = "flex";
+  loading.style.justifyContent = "center";
+  loading.style.alignContent = "center";
+  app.appendChild(loading);
+};
+
+//Remove Loading state
+const removeLoading = () => {
+  let loading = document.getElementById("loading-cls");
+  loading.remove();
+};
+//Fetch function
+fetchData(URL);
 
 // do not modify the code below
 let displayAllButton = document.getElementById("all");
