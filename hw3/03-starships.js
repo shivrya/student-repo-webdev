@@ -165,14 +165,3 @@ const displayShipComponents = (starships) => {
     app.appendChild(shipComponent);
   }
 };
-
-const displayText = (text) => {
-  clearAndReset();
-  let app = document.getElementById("results");
-  let paragraph = document.createElement("p");
-  paragraph.textContent = text;
-  paragraph.style.backgroundColor = "white";
-  paragraph.style.borderRadius = "10px";
-  paragraph.style.padding = "30px";
-  app.appendChild(paragraph);
-};
