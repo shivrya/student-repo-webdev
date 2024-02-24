@@ -11,7 +11,7 @@ sectionElement.className = "container";
 const createImgElement = document.createElement("img");
 createImgElement.className = "img";
 createImgElement.src = "../images/shivraj.png";
-createImgElement.alt = "Shivraj smiling for the camera";
+createImgElement.alt = "Shivraj Khose standing in front of car";
 createImgElement.width = "200";
 sectionElement.appendChild(createImgElement);
 
