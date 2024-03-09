@@ -38,7 +38,7 @@ Updated code for index.js :
 ```
 
 
-### Issue #2: Accessibility
+### Issue #2: Accessibility : Missing closing tag for label
 
 Issue: Missing closing tag for lable tag: In the first p tag element, the closing tag for the lable tag element is missing. It should be lable tag instead of span tag. 
 
@@ -47,17 +47,7 @@ Why it is an issue: It could cause issues like rendering problems, accesssibilit
 Solution: Each input tag element is now associated with a label tag element using the for attribute. This improves accessibility by providing a visible label for each input field. Each input tag field should be accompanied by a label tag element that describes the purpose of the field. The for attribute of the label tag should match the id attribute of the corresponding input tag field. This association improves accessibility by providing a clear and programmatically associated label for each input field.Each input field now has a label tag element associated with it, ensuring consistent labeling techniques for accessibility and usability.
 
 
-
-### Issue #3: Accessibility
-
-Issue : Placeholder texts were missing for all 4 labels : name, username, email, phone
-
-Why it is an issue: Missing placeholder texts could be an issue from a usability and accessibility standpoint. The placeholder attribute for each input field provides a hint or example of the expected input. Each placeholder text is unique and specific to the purpose of the input field, improving usability. Users might not get better understanding of the expected inputs for fields.
-
-Solution : The placeholder attribute is added to each input field, containing descriptive text that instructs users on what information to enter. For example, "Enter your name" prompts users to input their name, "Enter your email" instructs users to input their email address, and "Enter your phone number" guides users to input their phone number.
-
-
-### Issue #4: Accessibility
+### Issue #3: Accessibility : Redundant aria-label
 
 
 Issue : The use of aria-label on the input tags elements for "Email" and "Phone Number" is redundant because there are visible labels associated with them. It's generally better to rely on visible labels whenever possible and use aria-label only when there's no visible label present.
