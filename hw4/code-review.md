@@ -40,9 +40,35 @@ Updated code for index.js :
 
 ### Issue #2: Accessibility
 
-The issue, why this is an issue, and the solution:
+Issue: Missing closing tag for <label>: In the first <p> element, the closing tag for the <label> element is missing. It should be </label> instead of </span>. 
 
-The accessibility issue is the "empty button" issue, meaning that the button is either empty or has no value text. A button should also have a value. However sometimes, we might use a glyphicon such as "x" to indicate this button is meant to close the popup modal. To fix this issue, we can add an "aria-label" attribute. It's also a good idea to add the "title" attribute, which will show the "title" of the image as a tooltip when the user hovers over the image.
+Why it is an issue: It could cause issues like rendering problems, accesssibility concerns, compatibility issues, maintenance challenge.
+
+Solution: Each <input> element is now associated with a <label> element using the for attribute. This improves accessibility by providing a visible label for each input field. Each <input> field should be accompanied by a <label> element that describes the purpose of the field. The for attribute of the <label> should match the id attribute of the corresponding <input> field. This association improves accessibility by providing a clear and programmatically associated label for each input field.Each input field now has a <label> element associated with it, ensuring consistent labeling techniques for accessibility and usability.
+
+
+
+### Issue #3: Accessibility
+
+Issue : Placeholder texts were missing for all 4 labels : name, username, email, phone
+
+Why it is an issue: Missing placeholder texts could be an issue from a usability and accessibility standpoint. The placeholder attribute for each input field provides a hint or example of the expected input. Each placeholder text is unique and specific to the purpose of the input field, improving usability. Users might not get better understanding of the expected inputs for fields.
+
+Solution : The placeholder attribute is added to each input field, containing descriptive text that instructs users on what information to enter. For example, "Enter your name" prompts users to input their name, "Enter your email" instructs users to input their email address, and "Enter your phone number" guides users to input their phone number.
+
+
+### Issue #4: Accessibility
+
+
+Issue : The use of aria-label on the <input> elements for "Email" and "Phone Number" is redundant because there are visible labels associated with them. It's generally better to rely on visible labels whenever possible and use aria-label only when there's no visible label present.
+
+Why it is an issue: having redundant Aria labels can be issue because of cluttered accessibility tree, ambiguity and confusion. It couls create problem for web developers to create more streamlined and accessible user experience
+
+Solution: The redundant aria-label attributes have been removed from the <input> elements for "Email" and "Phone Number" because there are visible labels associated with them. Using visible labels is preferred over aria-label when possible. Removing redundant aria-label attributes improves accessibility by ensuring that assistive technologies can accurately convey the purpose of each input field without unnecessary duplication of information.
+
+
+UI and code changes for 2nd, 3rd and 4th issues are as follows : 
+
 
 Initial Code UI : 
 <img src="../images/before_label.png" height=200 alt="screenshot showing an aaccessibility issue on the image with the close button">
