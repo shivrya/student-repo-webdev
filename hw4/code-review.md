@@ -47,15 +47,14 @@ Why it is an issue: It could cause issues like rendering problems, accesssibilit
 Solution: Each input tag element is now associated with a label tag element using the for attribute. This improves accessibility by providing a visible label for each input field. Each input tag field should be accompanied by a label tag element that describes the purpose of the field. The for attribute of the label tag should match the id attribute of the corresponding input tag field. This association improves accessibility by providing a clear and programmatically associated label for each input field.Each input field now has a label tag element associated with it, ensuring consistent labeling techniques for accessibility and usability.
 
 Initial Code:
-'''html
+```html
 <span class="form-label">Name</span>
-'''
+```
 
 Updated code : 
-'''html
+```html
 <label for="name" class="form-label">Name:</label>
-'''
-
+```
 
 ### Issue #3: Accessibility : Redundant aria-label
 
@@ -67,14 +66,14 @@ Why it is an issue: having redundant Aria labels can be issue because of clutter
 Solution: The redundant aria-label attributes have been removed from the input tags elements for "Email" and "Phone Number" because there are visible labels associated with them. Using visible labels is preferred over aria-label when possible. Removing redundant aria-label attributes improves accessibility by ensuring that assistive technologies can accurately convey the purpose of each input field without unnecessary duplication of information.
 
 Initial Code:
-'''html
+```html
 <input aria-label="name" class="form-input-box" type="text" id="name" name="name" />
-'''
+```
 
 Updated code : 
-'''html
+```html
 <input type="text" id="name" name="name" class="form-input-box" placeholder="Enter your name" />
-'''
+```
 
 
 
