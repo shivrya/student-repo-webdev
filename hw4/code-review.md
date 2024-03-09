@@ -40,11 +40,11 @@ Updated code for index.js :
 
 ### Issue #2: Accessibility
 
-Issue: Missing closing tag for "<label>": In the first <p> element, the closing tag for the <label> element is missing. It should be </label> instead of </span>. 
+Issue: Missing closing tag for lable tag: In the first p tag element, the closing tag for the lable tag element is missing. It should be lable tag instead of span tag. 
 
 Why it is an issue: It could cause issues like rendering problems, accesssibility concerns, compatibility issues, maintenance challenge.
 
-Solution: Each <input> element is now associated with a <label> element using the for attribute. This improves accessibility by providing a visible label for each input field. Each <input> field should be accompanied by a <label> element that describes the purpose of the field. The for attribute of the <label> should match the id attribute of the corresponding <input> field. This association improves accessibility by providing a clear and programmatically associated label for each input field.Each input field now has a <label> element associated with it, ensuring consistent labeling techniques for accessibility and usability.
+Solution: Each input tag element is now associated with a label tag element using the for attribute. This improves accessibility by providing a visible label for each input field. Each input tag field should be accompanied by a label tag element that describes the purpose of the field. The for attribute of the label tag should match the id attribute of the corresponding input tag field. This association improves accessibility by providing a clear and programmatically associated label for each input field.Each input field now has a label tag element associated with it, ensuring consistent labeling techniques for accessibility and usability.
 
 
 
@@ -60,20 +60,26 @@ Solution : The placeholder attribute is added to each input field, containing de
 ### Issue #4: Accessibility
 
 
-Issue : The use of aria-label on the &lt;input&gt; elements for "Email" and "Phone Number" is redundant because there are visible labels associated with them. It's generally better to rely on visible labels whenever possible and use aria-label only when there's no visible label present.
+Issue : The use of aria-label on the input tags elements for "Email" and "Phone Number" is redundant because there are visible labels associated with them. It's generally better to rely on visible labels whenever possible and use aria-label only when there's no visible label present.
 
 Why it is an issue: having redundant Aria labels can be issue because of cluttered accessibility tree, ambiguity and confusion. It couls create problem for web developers to create more streamlined and accessible user experience
 
-Solution: The redundant aria-label attributes have been removed from the <input> elements for "Email" and "Phone Number" because there are visible labels associated with them. Using visible labels is preferred over aria-label when possible. Removing redundant aria-label attributes improves accessibility by ensuring that assistive technologies can accurately convey the purpose of each input field without unnecessary duplication of information.
+Solution: The redundant aria-label attributes have been removed from the input tags elements for "Email" and "Phone Number" because there are visible labels associated with them. Using visible labels is preferred over aria-label when possible. Removing redundant aria-label attributes improves accessibility by ensuring that assistive technologies can accurately convey the purpose of each input field without unnecessary duplication of information.
 
 
 UI and code changes for 2nd, 3rd and 4th issues are as follows : 
 
 
 Initial Code UI : 
+ 
+
+
 <img src="../images/before_label.png" height=200 alt="screenshot showing an aaccessibility issue on the image with the close button">
 
 Updated code UI: 
+ 
+
+ 
 <img src="../images/after_label.png" height=200 alt="screenshot showing an aaccessibility issue on the image with the close button">
 
 Initial code:
