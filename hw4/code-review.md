@@ -2,11 +2,11 @@
 
 ### Issue #1: Code Formatting
 
-There are a lot of statements in the given code which are longer in length.
-This will create an issue in readability and maintanance of the code. It also becomes difficult to follow the line.
-Hence we need to make sure that there is a consistent style which will improve code maintainance as well as the readability.
-All 3 files : index.html, index.js and styles.css has this issue.
-I am pasting the code and improvements for styles.css and index.js
+Issue: There are a lot of statements in the given code which are longer in length.
+
+Why this is an issue: This will create an issue in readability and maintanance of the code. It also becomes difficult to follow the line. Hence we need to make sure that there is a consistent style which will improve code maintainance as well as the readability.
+
+Solution: All 3 files : index.html, index.js and styles.css has this issue. Reduced the lengths of big statements by breaking the statement and moving them to next line. I have pasted example of improvements for styles.css and index.js below.
 
 Initial code for styles.css :
 
@@ -60,7 +60,7 @@ Solution : The placeholder attribute is added to each input field, containing de
 ### Issue #4: Accessibility
 
 
-Issue : The use of aria-label on the <input> elements for "Email" and "Phone Number" is redundant because there are visible labels associated with them. It's generally better to rely on visible labels whenever possible and use aria-label only when there's no visible label present.
+Issue : The use of aria-label on the \<input\> elements for "Email" and "Phone Number" is redundant because there are visible labels associated with them. It's generally better to rely on visible labels whenever possible and use aria-label only when there's no visible label present.
 
 Why it is an issue: having redundant Aria labels can be issue because of cluttered accessibility tree, ambiguity and confusion. It couls create problem for web developers to create more streamlined and accessible user experience
 
