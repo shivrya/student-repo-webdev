@@ -40,7 +40,7 @@ Updated code for index.js :
 
 ### Issue #2: Accessibility
 
-Issue: Missing closing tag for <label>: In the first <p> element, the closing tag for the <label> element is missing. It should be </label> instead of </span>. 
+Issue: Missing closing tag for "<label>": In the first <p> element, the closing tag for the <label> element is missing. It should be </label> instead of </span>. 
 
 Why it is an issue: It could cause issues like rendering problems, accesssibility concerns, compatibility issues, maintenance challenge.
 
