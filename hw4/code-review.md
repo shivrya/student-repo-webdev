@@ -1,8 +1,8 @@
 ## Code Review Exercise
 
-### Issue #1: Accessibility : Missing closing tag for label
+### Issue #1: Accessibility : Form input misses its corresponding label
 
-Issue: Missing closing tag for lable tag: In the first p tag element, the closing tag for the lable tag element is missing. It should be lable tag instead of span tag. 
+Issue: Form input misses its corresponding label. Input tag is not correctly associated with a label tag by making the "for" field of the label tag matches the "id" field of the input tag.
 
 Why it is an issue: It could cause issues like rendering problems, accesssibility concerns, compatibility issues, maintenance challenge.
 
@@ -10,18 +10,24 @@ Solution: Each input tag element is now associated with a label tag element usin
 
 Initial Code:
 ```html
-<span class="form-label">Name</span>
+          <p class="label-input-group form-element-container">
+            <span class="form-label">Name</span>
+            <input aria-label="name" class="form-input-box" type="text" id="name" name="name" />
+          </p>
 ```
 
 Updated code : 
 ```html
-<label for="name" class="form-label">Name:</label>
+          <p class="label-input-group form-element-container">
+            <label for="name" class="form-label">Name:</label>
+            <input type="text" id="name" name="name" class="form-input-box" placeholder="Enter your name" />
+          </p>
 ```
 
 ### Issue #2: Accessibility : Redundant aria-label
 
 
-Issue : The use of aria-label on the input tags elements for "Email" and "Phone Number" is redundant because there are visible labels associated with them. It's generally better to rely on visible labels whenever possible and use aria-label only when there's no visible label present.
+Issue : The use of aria-label on the input tags elements for "Name", "Username", "Email" and "Phone Number" is redundant because there are visible labels associated with them. It's generally better to rely on visible labels whenever possible and use aria-label only when there's no visible label present.
 
 Why it is an issue: having redundant Aria labels can be issue because of cluttered accessibility tree, ambiguity and confusion. It couls create problem for web developers to create more streamlined and accessible user experience
 
