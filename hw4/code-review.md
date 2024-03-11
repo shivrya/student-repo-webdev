@@ -27,11 +27,11 @@ Updated code :
 
 ### Issue #2: Accessibility : Redundant aria-label
 
-Issue: The use of aria-label on the input tags elements for "Name,” "Username,” "Email" and "Phone Number" is redundant because there are visible labels associated with them. It is generally better to rely on visible labels whenever possible and use aria-labels only when no visible label is present.
+Issue: The use of aria-label on the input tags elements for "Name,” "Username,” "Email" and "Phone Number" is redundant because there are visible labels associated with them. It is generally better to rely on visible labels whenever possible and use aria-labels only when no visible label is present. When an input element is associated with a visible label using the for attribute, the label serves as the accessible name for the input field. Including an aria-label in addition to a visible label can lead to redundancy and potential confusion for assistive technology users.
 
 Why it is an issue: Having redundant Aria labels can be an issue because of the cluttered accessibility tree, ambiguity, and confusion. It couls create problem for web developers to create more streamlined and accessible user experience
 
-Solution: The redundant aria-label attributes have been removed from the input tags elements for "Email" and "Phone Number" because there are visible labels associated with them. The use of visible labels is preferred over the aria-label when possible. Removing redundant aria-label attributes improves accessibility by ensuring that assistive technologies can accurately convey the purpose of each input field without the unnecessary duplication of information.
+Solution: aria-label attribute was removed because it was redundant for "Name,” "Username,” "Email" and "Phone Number" because there are visible labels associated with them. Instead of relying solely on aria-label, a label element with a for attribute has been added. The use of visible labels is preferred over the aria-label when possible. Removing redundant aria-label attributes improves accessibility by ensuring that assistive technologies can accurately convey the purpose of each input field without the unnecessary duplication of information.
 
 Initial Code:
 ```html
