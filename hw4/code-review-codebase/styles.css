@@ -85,19 +85,7 @@ body {
   transition: 0.25s;
 }
 
-.navbar-toggle-close-button {
-  font-size: 1.5rem;
-  color: var(--white);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  background-color: transparent;
-  border: none;
-  margin: auto;
-}
+/* dsd */
 
 .navbar-toggle-close-button:hover {
   background-color: var(--light-gray);

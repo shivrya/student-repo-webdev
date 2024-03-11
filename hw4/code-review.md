@@ -1,7 +1,7 @@
 ## Code Review Exercise
 
 
-### Issue #1: Accessibility : Form input misses its corresponding label tag
+### Issue #1: Accessibility : Form Input Misses Its Corresponding Label Tag
 
 Issue: Form input misses corresponding labels. Input tag is not correctly associated with a label tag by making the "for" field of the label tag matches the "id" field of the input tag.  The input tag should have a label tag with for the field of the label to be identical to that of the "id" field in the input tag.
 
@@ -28,7 +28,7 @@ Updated code :
 
 
 
-### Issue #2: Accessibility : Redundant aria-label
+### Issue #2: Accessibility : Redundant "aria-label"
 
 Issue: The use of aria-label on the input tags elements for "Name,” "Username,” "Email" and "Phone Number" is redundant because there are visible labels associated with them. It is generally better to rely on visible labels whenever possible and use aria-labels only when no visible label is present. When an input element is associated with a visible label using the for attribute, the label serves as the accessible name for the input field. Including an aria-label in addition to a visible label can lead to redundancy and potential confusion for assistive technology users.
 
@@ -145,29 +145,30 @@ Updated code:
 
 
 
-### Issue #3: Code Refactoring : Redundant Color Variables
+### Issue #3: Code Refactoring : Removing Unused CSS Class
 
 
-Issue : --darker-blue-transpaent and --darker-blue-even-transpaent color names in styles.css are redudant since there is not much noticeable difference in --darker-blue,  --darker-blue-transpaent, --darker-blue-even-transpaent. I removed --darker-blue-transpaent and --darker-blue-even-transpaent colors and I did not see any changes to the user interface, I think the code needs to be refactored.
+Issue : There is one class in CSS called navbar-toggle-close-button which is not utilized anywhere in the HTML file.
 
-Why it is an issue: Redundant colors can lead to unnecessary complexity and maintenance. Maintaining a clean and concise code is preferable. It's better to remove if it serves a purpose that can be fulfulled by another existing variable.
+Why it is an issue: Redundant CSS class can lead to unnecessary complexity and maintenance. Maintaining a clean and concise code is preferable.
 
-Solution: Removed 2 colors out of 3 because the other 1 element serves the same purpose as the other 2. It makes the other 2 colors redundant.
+Solution: Removing the navbar-toggle-close-button class from styles.css file.
 
 Initial Code:
 ```css
 
-:root {
-  --darker-blue: rgb(25, 20, 101, 1);
-  --darker-blue-transpaent: rgb(25, 20, 101, 0.7);
-  --dark-blue: rgba(33, 26, 144, 1);
-  --blue: rgba(44, 21, 208, 1);
-  --light-blue: rgb(190, 182, 249);
-  --purple: rgba(124, 51, 185, 1);
-  --white: rgb(255, 255, 255);
-  --transparent: rgba(0, 0, 0, 0);
-  --light-gray: rgb(226, 226, 226);
-  --darker-blue-even-transpaent: rgb(25, 20, 101, 0.2); 
+.navbar-toggle-close-button {
+  font-size: 1.5rem;
+  color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  background-color: transparent;
+  border: none;
+  margin: auto;
 }
 
 ```
@@ -175,15 +176,6 @@ Initial Code:
 Updated code : 
 ```css
 
-:root {
-  --darker-blue: rgb(25, 20, 101, 1);
-  --dark-blue: rgba(33, 26, 144, 1);
-  --blue: rgba(44, 21, 208, 1);
-  --light-blue: rgb(190, 182, 249);
-  --purple: rgba(124, 51, 185, 1);
-  --white: rgb(255, 255, 255);
-  --transparent: rgba(0, 0, 0, 0);
-  --light-gray: rgb(226, 226, 226);
-}
+/* Removed navbar-toggle-close-button class from styles.css */
 
 ```
