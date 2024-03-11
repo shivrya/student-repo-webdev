@@ -35,12 +35,18 @@ Solution: aria-label attribute was removed because it was redundant for "Name,â€
 
 Initial Code:
 ```html
-<input aria-label="name" class="form-input-box" type="text" id="name" name="name" />
+          <p class="label-input-group form-element-container">
+            <span class="form-label">Name</span>
+            <input aria-label="name" class="form-input-box" type="text" id="name" name="name" />
+          </p>
 ```
 
 Updated code : 
 ```html
-<input type="text" id="name" name="name" class="form-input-box" placeholder="Enter your name" />
+          <p class="label-input-group form-element-container">
+            <label for="name" class="form-label">Name:</label>
+            <input type="text" id="name" name="name" class="form-input-box" placeholder="Enter your name" />
+          </p>
 ```
 
 
