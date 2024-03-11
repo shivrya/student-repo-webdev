@@ -25,6 +25,9 @@ Updated code :
           </p>
 ```
 
+
+
+
 ### Issue #2: Accessibility : Redundant aria-label
 
 Issue: The use of aria-label on the input tags elements for "Name,” "Username,” "Email" and "Phone Number" is redundant because there are visible labels associated with them. It is generally better to rely on visible labels whenever possible and use aria-labels only when no visible label is present. When an input element is associated with a visible label using the for attribute, the label serves as the accessible name for the input field. Including an aria-label in addition to a visible label can lead to redundancy and potential confusion for assistive technology users.
@@ -138,4 +141,49 @@ Updated code:
             />
           </p>
         </div>
+```
+
+
+
+### Issue #3: Code Refactoring : Redundant Color Variables
+
+
+Issue : --darker-blue-transpaent and --darker-blue-even-transpaent color names in styles.css are redudant since there is not much noticeable difference in --darker-blue,  --darker-blue-transpaent, --darker-blue-even-transpaent. 
+
+Why it is an issue: Redundant colors can lead to unnecessary complexity and maintenance. Maintaining a clean and concise code is preferable. It's better to remove if it serves a purpose that can be fulfulled by another existing variable.
+
+Solution: Removed 2 colors out of 3 because the other 1 element serves the same purpose as the other 2. It makes the other 2 colors redundant.
+
+Initial Code:
+```css
+
+:root {
+  --darker-blue: rgb(25, 20, 101, 1);
+  --darker-blue-transpaent: rgb(25, 20, 101, 0.7);
+  --dark-blue: rgba(33, 26, 144, 1);
+  --blue: rgba(44, 21, 208, 1);
+  --light-blue: rgb(190, 182, 249);
+  --purple: rgba(124, 51, 185, 1);
+  --white: rgb(255, 255, 255);
+  --transparent: rgba(0, 0, 0, 0);
+  --light-gray: rgb(226, 226, 226);
+  --darker-blue-even-transpaent: rgb(25, 20, 101, 0.2); 
+}
+
+```
+
+Updated code : 
+```css
+
+:root {
+  --darker-blue: rgb(25, 20, 101, 1);
+  --dark-blue: rgba(33, 26, 144, 1);
+  --blue: rgba(44, 21, 208, 1);
+  --light-blue: rgb(190, 182, 249);
+  --purple: rgba(124, 51, 185, 1);
+  --white: rgb(255, 255, 255);
+  --transparent: rgba(0, 0, 0, 0);
+  --light-gray: rgb(226, 226, 226);
+}
+
 ```
