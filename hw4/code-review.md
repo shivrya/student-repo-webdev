@@ -1,8 +1,8 @@
 ## Code Review Exercise
 
-### Issue #1: Accessibility : Form input misses its corresponding label
+### Issue #1: Accessibility : Form input misses its corresponding label tag
 
-Issue: Form input misses its corresponding label. Input tag is not correctly associated with a label tag by making the "for" field of the label tag matches the "id" field of the input tag.
+Issue: Form input misses its corresponding label. Input tag is not correctly associated with a label tag by making the "for" field of the label tag matches the "id" field of the input tag.  Input tag should have an label tag with for field of the label should be same as that of id field in the input tag.
 
 Why it is an issue: It could cause issues like rendering problems, accesssibility concerns, compatibility issues, maintenance challenge.
 
@@ -45,7 +45,7 @@ Updated code :
 
 
 
-UI and code changes for 2nd and 3rd issues are as follows : 
+UI and complete code changes for 1st and 2nd issues are as follows : 
 
 
 Initial Code UI : 
