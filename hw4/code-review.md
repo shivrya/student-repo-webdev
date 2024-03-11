@@ -3,11 +3,11 @@
 
 ### Issue #1: Accessibility : Form input misses its corresponding label tag
 
-Issue: Form input misses corresponding labels. Input tag is not correctly associated with a label tag by making the "for" field of the label tag matches the "id" field of the input tag.  The input tag should have a label tag with for the field of the label to be identical to that of the ID field in the input tag.
+Issue: Form input misses corresponding labels. Input tag is not correctly associated with a label tag by making the "for" field of the label tag matches the "id" field of the input tag.  The input tag should have a label tag with for the field of the label to be identical to that of the "id" field in the input tag.
 
 Why it is an issue: This could cause issues such as rendering problems, accessibility concerns, compatibility issues, and maintenance challenges.
 
-Solution: Each input tag element is associated with a label tag element using for attribute. This improves the accessibility by providing a visible label for each input field. Each input tag field should be accompanied by a label tag element that describes its purpose. The for attribute of the label tag should match the ID attribute of the corresponding input tag field. This association improves accessibility by providing a clear and programmatically associated label for each input field.Each input field now has a label tag element associated with it, ensuring consistent labeling techniques for accessibility and usability.
+Solution: Each input tag element is associated with a label tag element using for attribute. This improves the accessibility by providing a visible label for each input field. Each input tag field should be accompanied by a label tag element that describes its purpose. The for attribute of the label tag should match the "id" field of the corresponding input tag field. This association improves accessibility by providing a clear and programmatically associated label for each input field.Each input field now has a label tag element associated with it, ensuring consistent labeling techniques for accessibility and usability.
 
 Initial Code:
 ```html
