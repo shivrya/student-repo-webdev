@@ -148,7 +148,7 @@ Updated code:
 ### Issue #3: Code Refactoring : Redundant Color Variables
 
 
-Issue : --darker-blue-transpaent and --darker-blue-even-transpaent color names in styles.css are redudant since there is not much noticeable difference in --darker-blue,  --darker-blue-transpaent, --darker-blue-even-transpaent. 
+Issue : --darker-blue-transpaent and --darker-blue-even-transpaent color names in styles.css are redudant since there is not much noticeable difference in --darker-blue,  --darker-blue-transpaent, --darker-blue-even-transpaent. I removed --darker-blue-transpaent and --darker-blue-even-transpaent colors and I did not see any changes to the user interface, I think the code needs to be refactored.
 
 Why it is an issue: Redundant colors can lead to unnecessary complexity and maintenance. Maintaining a clean and concise code is preferable. It's better to remove if it serves a purpose that can be fulfulled by another existing variable.
 
