@@ -1,12 +1,13 @@
 ## Code Review Exercise
 
+
 ### Issue #1: Accessibility : Form input misses its corresponding label tag
 
-Issue: Form input misses its corresponding label. Input tag is not correctly associated with a label tag by making the "for" field of the label tag matches the "id" field of the input tag.  Input tag should have an label tag with for field of the label should be same as that of id field in the input tag.
+Issue: Form input misses corresponding labels. Input tag is not correctly associated with a label tag by making the "for" field of the label tag matches the "id" field of the input tag.  The input tag should have a label tag with for the field of the label to be identical to that of the ID field in the input tag.
 
-Why it is an issue: It could cause issues like rendering problems, accesssibility concerns, compatibility issues, maintenance challenge.
+Why it is an issue: This could cause issues such as rendering problems, accessibility concerns, compatibility issues, and maintenance challenges.
 
-Solution: Each input tag element is now associated with a label tag element using the for attribute. This improves accessibility by providing a visible label for each input field. Each input tag field should be accompanied by a label tag element that describes the purpose of the field. The for attribute of the label tag should match the id attribute of the corresponding input tag field. This association improves accessibility by providing a clear and programmatically associated label for each input field.Each input field now has a label tag element associated with it, ensuring consistent labeling techniques for accessibility and usability.
+Solution: Each input tag element is associated with a label tag element using for attribute. This improves the accessibility by providing a visible label for each input field. Each input tag field should be accompanied by a label tag element that describes its purpose. The for attribute of the label tag should match the ID attribute of the corresponding input tag field. This association improves accessibility by providing a clear and programmatically associated label for each input field.Each input field now has a label tag element associated with it, ensuring consistent labeling techniques for accessibility and usability.
 
 Initial Code:
 ```html
@@ -26,12 +27,11 @@ Updated code :
 
 ### Issue #2: Accessibility : Redundant aria-label
 
+Issue: The use of aria-label on the input tags elements for "Name,” "Username,” "Email" and "Phone Number" is redundant because there are visible labels associated with them. It is generally better to rely on visible labels whenever possible and use aria-labels only when no visible label is present.
 
-Issue : The use of aria-label on the input tags elements for "Name", "Username", "Email" and "Phone Number" is redundant because there are visible labels associated with them. It's generally better to rely on visible labels whenever possible and use aria-label only when there's no visible label present.
+Why it is an issue: Having redundant Aria labels can be an issue because of the cluttered accessibility tree, ambiguity, and confusion. It couls create problem for web developers to create more streamlined and accessible user experience
 
-Why it is an issue: having redundant Aria labels can be issue because of cluttered accessibility tree, ambiguity and confusion. It couls create problem for web developers to create more streamlined and accessible user experience
-
-Solution: The redundant aria-label attributes have been removed from the input tags elements for "Email" and "Phone Number" because there are visible labels associated with them. Using visible labels is preferred over aria-label when possible. Removing redundant aria-label attributes improves accessibility by ensuring that assistive technologies can accurately convey the purpose of each input field without unnecessary duplication of information.
+Solution: The redundant aria-label attributes have been removed from the input tags elements for "Email" and "Phone Number" because there are visible labels associated with them. The use of visible labels is preferred over the aria-label when possible. Removing redundant aria-label attributes improves accessibility by ensuring that assistive technologies can accurately convey the purpose of each input field without the unnecessary duplication of information.
 
 Initial Code:
 ```html
