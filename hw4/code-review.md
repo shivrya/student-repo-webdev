@@ -1,44 +1,6 @@
 ## Code Review Exercise
 
-### Issue #1: Code Formatting
-
-Issue: There are a lot of statements in the given code which are longer in length.
-
-Why this is an issue: This will create an issue in readability and maintanance of the code. It also becomes difficult to follow the line. Hence we need to make sure that there is a consistent style which will improve code maintainance as well as the readability.
-
-Solution: All 3 files : index.html, index.js and styles.css has this issue. Reduced the lengths of big statements by breaking the statement and moving them to next line. I have pasted example of improvements for styles.css and index.js below.
-
-Initial code for styles.css :
-
-```css
-  background: linear-gradient(34deg, var(--dark-blue) 6%, var(--blue) 46%, var(--purple) 91%);
-```
-
-Updated code for styles.css :
-
-```css
-  background: linear-gradient(
-    34deg,
-    var(--dark-blue) 6%,
-    var(--blue) 46%,
-    var(--purple) 91%
-  );
-```
-Initial code for index.js :
-
-```javascript
-    const popupSection = event.currentTarget.parentElement.parentElement.parentElement;
-```
-
-Updated code for index.js :
-
-```javascript
-    const popupSection =
-      event.currentTarget.parentElement.parentElement.parentElement;
-```
-
-
-### Issue #2: Accessibility : Missing closing tag for label
+### Issue #1: Accessibility : Missing closing tag for label
 
 Issue: Missing closing tag for lable tag: In the first p tag element, the closing tag for the lable tag element is missing. It should be lable tag instead of span tag. 
 
@@ -56,7 +18,7 @@ Updated code :
 <label for="name" class="form-label">Name:</label>
 ```
 
-### Issue #3: Accessibility : Redundant aria-label
+### Issue #2: Accessibility : Redundant aria-label
 
 
 Issue : The use of aria-label on the input tags elements for "Email" and "Phone Number" is redundant because there are visible labels associated with them. It's generally better to rely on visible labels whenever possible and use aria-label only when there's no visible label present.
