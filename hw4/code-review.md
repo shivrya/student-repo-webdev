@@ -179,13 +179,3 @@ Updated code:
 /* Removed navbar-toggle-close-button class from styles.css */
 
 ```
-
-
-### Issue #3: Code Refactoring: Avoiding Repetition of the Code.
-
-
-Issue: There is one class in styles.css called navbar-toggle-close-button, which is not used anywhere in the index.html file.
-
-Why it is an issue: Redundant class in styles.css can lead to unnecessary complexity and maintenance. Maintaining a clean and concise code is preferable.
-
-Solution: Removing the navbar-toggle-close-button class from the styles.css file.
